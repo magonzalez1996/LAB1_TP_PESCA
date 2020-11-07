@@ -14,7 +14,7 @@ int main(){
     do{
         cls();
         setColor(WHITE);
-        cout << "MENÚ PRINCIPAL" << endl;
+        cout << "MENU PRINCIPAL" << endl;
         cout << "--------------------------------" << endl;
         cout << "1 - REGISTRAR CAPTURAS" << endl;
         cout << "2 - REPORTE A" << endl;
