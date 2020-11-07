@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1604619005 source:d:\lucas\facu\laboratorio de computación i\parcial 2\nueva carpeta\tema 2 - pesca\main.cpp
+	<iostream>
+	"rlutil.h"
+	"funciones.h"
+
+1604621365 source:d:\lucas\facu\laboratorio de computación i\parcial 2\nueva carpeta\tema 2 - pesca\funciones.cpp
+	<iostream>
+	"rlutil.h"
+	"funciones.h"
+	"funciones.h"
+
+1604443934 d:\lucas\facu\laboratorio de computación i\parcial 2\nueva carpeta\tema 2 - pesca\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1604621570 d:\lucas\facu\laboratorio de computación i\parcial 2\nueva carpeta\tema 2 - pesca\funciones.h
+
