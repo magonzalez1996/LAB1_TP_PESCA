@@ -6,14 +6,12 @@ using namespace rlutil;
 
 int main(){
     int opcion;
-    int veccodespecie[9];
-    float  vechora[9], vecpeso[9];
-
-
+    int veccodespecie[9], maxPescador = 0;
+    float  vechora[9], vecpeso[9], maxPeso = 0;
 
     do{
         cls();
-        setColor(WHITE);
+        setColor(LIGHTBLUE);
         cout << "MENU PRINCIPAL" << endl;
         cout << "--------------------------------" << endl;
         cout << "1 - REGISTRAR CAPTURAS" << endl;
@@ -28,10 +26,11 @@ int main(){
 
         switch(opcion){
             case 1:
-                registrar_capturas( veccodespecie, vechora, vecpeso);
+                registrar_capturas( veccodespecie, vechora, vecpeso, &maxPescador, &maxPeso);
             break;
             case 2:
                 cout << " REPORTE A" << endl;
+                reporte_A(maxPeso, maxPescador);
             break;
             case 3:
                 cout << "REPORTE B" << endl;
