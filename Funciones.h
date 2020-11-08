@@ -71,6 +71,7 @@ void registrar_capturas(int veccodespecie[], float vechora[], float vecpeso[], i
     while( codpescador!=0){
         cout << "Codigo de especie" << endl;
         cin>>codespecie;
+        //no funciona bien
         validarExisteEspecie(vEsp, &codespecie);
         
         cout << "Hora de captura" << endl;
