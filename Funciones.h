@@ -12,9 +12,9 @@ void calcularGanador(float peso, float *maxPeso, int codpescador, int *maxPescad
         *maxPescador=codpescador;
     }
 }
-void validacionHora(float *hora){
-    while (*hora < 6 || *hora > 23){
-        cout<<"la hora es invalida, el rango de horario es de 6am a 23pm";
+void validacionHora(float *hora, int hIni, int hFin){
+    while (*hora < hIni || *hora > hFin){
+        cout<<"la hora es invalida, el rango de horario es de "<< hIni << "am a "<< hFin << "pm.\n";
         cout << "Ingrese hora de captura nuevamente" << endl;
         cin>>*hora;
     }
@@ -67,6 +67,7 @@ void registrar_capturas(int veccodespecie[], float vechora[], float vecpeso[], i
     cout << "---------------------------" << endl;
     cout << "Codigo de pescador" << endl;
     cin>>codpescador;
+    //validacionPescador(codPescador);
     
     while( codpescador!=0){
         cout << "Codigo de especie" << endl;
@@ -76,7 +77,7 @@ void registrar_capturas(int veccodespecie[], float vechora[], float vecpeso[], i
         
         cout << "Hora de captura" << endl;
         cin>>hora;
-        validacionHora(&hora);
+        validacionHora(&hora, hInicio, hFin);
 
         cout << "Kilogramos del pez" << endl;
         cin>>peso;
