@@ -6,13 +6,13 @@ using namespace rlutil;
 
 int main(){
     int opcion;
-    int veccodespecie[9], maxPescador = 0, horaInicio = 6, horaFin = 23;
+    int veccodespecie[9], maxPescador = 0, horaInicio = 6, horaFin = 23, minCodPescador = 100, maxCodPescador = 114;
     float vechora[horaFin-horaInicio], vecpeso[9], maxPeso = 0;
 
     //Tabla Comparativa de datos del torneo
-    int vMasterCodEsp[9] = {10,20,30,40,50,60,70,80,90};
-    //char vMasterNomEsp[9] = { "Anchoa", "Pejerrey", "Bagre", "Boga", "Caballa", "Carpa", "Trucha patagonica", "Dorado", "Lisa" };
-    float vMasterPesoMin[9] = {500,2,4,5,1,5,1.5,3,2.5};
+    const int vMasterCodEsp[9] = {10,20,30,40,50,60,70,80,90};
+    const char *vMasterNomEsp[9] = { "Anchoa", "Pejerrey", "Bagre", "Boga", "Caballa", "Carpa", "Trucha patagonica", "Dorado", "Lisa" };
+    const float vMasterPesoMin[9] = {500,2,4,5,1,5,1.5,3,2.5};
 
     do{
         cls();
@@ -31,7 +31,7 @@ int main(){
 
         switch(opcion){
             case 1:
-                registrar_capturas( veccodespecie, vechora, vecpeso, &maxPescador, &maxPeso, vMasterCodEsp, vMasterPesoMin, horaInicio, horaFin);
+                registrar_capturas( veccodespecie, vechora, vecpeso, &maxPescador, &maxPeso, vMasterCodEsp, *vMasterNomEsp, vMasterPesoMin, horaInicio, horaFin);
             break;
             case 2:
                 cout << " REPORTE A" << endl;
