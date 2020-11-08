@@ -9,6 +9,11 @@ int main(){
     int veccodespecie[9], maxPescador = 0;
     float  vechora[9], vecpeso[9], maxPeso = 0;
 
+    //Tabla Comparativa de datos del torneo
+    int vMasterCodEsp[9] = {10,20,30,40,50,60,70,80,90};
+    //char vMasterNomEsp[9] = { "Anchoa", "Pejerrey", "", "", "", "", "", "", "" };
+    float vMasterPesoMin[9] = {500,2,4,5,1,5,1.5,3,2.5};
+
     do{
         cls();
         setColor(LIGHTBLUE);
