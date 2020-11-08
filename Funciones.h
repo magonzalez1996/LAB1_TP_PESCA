@@ -12,14 +12,54 @@ void calcularGanador(float peso, float *maxPeso, int codpescador, int *maxPescad
         *maxPescador=codpescador;
     }
 }
-void ValidacionHora(float hora){
-	while(hora < 6 || hora > 23){
-        cout<<"la hora es invalida, el rango de horario es de 6am a 23pm" << endl;
+void validacionHora(float *hora){
+    while (*hora < 6 || *hora > 23){
+        cout<<"la hora es invalida, el rango de horario es de 6am a 23pm";
         cout << "Ingrese hora de captura nuevamente" << endl;
-        cin>>hora;
+        cin>>*hora;
     }
 }
-void registrar_capturas(int[], float[], float[]);void registrar_capturas(int veccodespecie[], float vechora[], float vecpeso[], int *maxPescador, float *maxPeso){
+
+float buscarPesoMinimoParaEspecie(int vEsp[], int esp, float vPeso[]){
+    int indiceEnDondeSeEncuentraElPesoDeLaEspecie = 0;
+    for(int i = 0; i < 9; i++){
+        if(vEsp[i] == esp){
+            indiceEnDondeSeEncuentraElPesoDeLaEspecie = i;
+            break;
+        }
+    }            
+    return vPeso[indiceEnDondeSeEncuentraElPesoDeLaEspecie];
+}
+void validarPesoMinimoPorEspecie(int vEsp[], float vPeso[], int especie, float peso){
+    float minimo = buscarPesoMinimoParaEspecie(vEsp, especie, vPeso);
+    while (peso < minimo){
+        cout<<"el peso es invalido, el peso debe ser mayor a " << minimo << endl;
+        cout << "Ingrese peso nuevamente" << endl;
+        cin>>peso;
+    }
+}
+
+int buscarEspcie(int vEsp[], int *esp){
+	for(int i = 0; i < 9; i++){
+        if(vEsp[i] == *esp){
+            return 1;
+            break;
+        }
+    }
+    return 0;
+}
+int validarExisteEspecie(int vEsp[], int *esp){
+    int exist = buscarEspcie(vEsp, esp);
+	
+	while (exist == 0){
+        cout<<"la especie ingresada no es valida.\nLos codigos de especie permitidos son: 10, 20, 30, 40, 50, 60, 70, 80, 90" << endl;
+        cout << "Ingrese especie nuevamente" << endl;
+        cin>>*esp;
+        validarExisteEspecie(vEsp, esp);
+	}
+}
+
+void registrar_capturas(int veccodespecie[], float vechora[], float vecpeso[], int *maxPescador, float *maxPeso, int vEsp[], float vPeso[],int hInicio,int hFin){
     int codpescador,codespecie;
     float hora, peso;
     cls();
@@ -27,16 +67,19 @@ void registrar_capturas(int[], float[], float[]);void registrar_capturas(int vec
     cout << "---------------------------" << endl;
     cout << "Codigo de pescador" << endl;
     cin>>codpescador;
+    
     while( codpescador!=0){
         cout << "Codigo de especie" << endl;
         cin>>codespecie;
+        validarExisteEspecie(vEsp, &codespecie);
         
         cout << "Hora de captura" << endl;
         cin>>hora;
-        ValidacionHora(hora);
+        validacionHora(&hora);
 
         cout << "Kilogramos del pez" << endl;
         cin>>peso;
+        validarPesoMinimoPorEspecie(vEsp, vPeso, codespecie, peso);
 
         calcularGanador(peso, maxPeso, codpescador, maxPescador);
 
@@ -55,5 +98,5 @@ void reporte_A(float maxPeso, int maxPescador){
 }
 
 
-
 #endif // FUNCIONES_H_INCLUDED
+
