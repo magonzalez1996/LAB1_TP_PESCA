@@ -33,6 +33,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="Funciones.h" />
+		<Unit filename="funciones.cpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="rlutil.h" />
 		<Extensions>

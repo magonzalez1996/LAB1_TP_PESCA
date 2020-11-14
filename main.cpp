@@ -7,13 +7,16 @@ using namespace rlutil;
 int main(){
     int opcion;
     int veccodespecie[9], maxPescador = 0, horaInicio = 6, horaFin = 23, minCodPescador = 100, maxCodPescador = 114;
-    float vechora[horaFin-horaInicio], vecpeso[9], maxPeso = 0;
-
+    int vechora[horaFin-horaInicio];
+    float vecpeso[9], maxPeso = 0;
+    ponercerovec(veccodespecie,9);
+    ponercerovec(vechora,17);
     //Tabla Comparativa de datos del torneo
+    // ----------------------------------------
     const int vMasterCodEsp[9] = {10,20,30,40,50,60,70,80,90};
     const char *vMasterNomEsp[9] = { "Anchoa", "Pejerrey", "Bagre", "Boga", "Caballa", "Carpa", "Trucha patagonica", "Dorado", "Lisa" };
-    const float vMasterPesoMin[9] = {500,2,4,5,1,5,1.5,3,2.5};
-
+    const float vMasterPesoMin[9] = {0.5,2,4,5,1,5,1.5,3,2.5};
+    //-----------------------------------------
     do{
         cls();
         setColor(LIGHTBLUE);
@@ -31,7 +34,7 @@ int main(){
 
         switch(opcion){
             case 1:
-                registrar_capturas( veccodespecie, vechora, vecpeso, &maxPescador, &maxPeso, vMasterCodEsp, *vMasterNomEsp, vMasterPesoMin, horaInicio, horaFin);
+                registrar_capturas( veccodespecie, vechora, vecpeso, &maxPescador, &maxPeso, vMasterCodEsp, *vMasterNomEsp, vMasterPesoMin, horaInicio, horaFin, minCodPescador, maxCodPescador);
             break;
             case 2:
                 cout << " REPORTE A" << endl;
@@ -39,12 +42,15 @@ int main(){
             break;
             case 3:
                 cout << "REPORTE B" << endl;
+                Mostrarespeciescapturadas(veccodespecie);
             break;
             case 4:
                 cout << "REPORTE C" << endl;
-            break;
+                porcentajedecapturas(horaInicio, vechora);
+			break;
             case 5:
                 cout << "CREDITOS" << endl;
+
             break;
             case 0:
 
